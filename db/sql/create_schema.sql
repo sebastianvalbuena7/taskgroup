@@ -8,13 +8,15 @@ CREATE TABLE customer
 
 CREATE TABLE project
 (
-    id        uuid NOT NULL,
+    id          uuid NOT NULL,
     name        varchar(20) NOT NULL,
     date_start  date NOT NULL,
     date_end    date NOT NULL,
     type        varchar(30) NOT NULL,
     budget      double precision NOT NULL,
-    CONSTRAINT pk_project PRIMARY KEY (id)
+    id_customer bigserial NOT NULL,
+    CONSTRAINT pk_project PRIMARY KEY (id),
+    CONSTRAINT fk_customer FOREIGN KEY (id_customer) REFERENCES customer (id)
 );
 
 CREATE TABLE task

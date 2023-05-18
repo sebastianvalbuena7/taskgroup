@@ -24,4 +24,7 @@ public class ProjectEntity {
     private BigDecimal budget;
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<TaskEntity> tasks;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_customer", nullable = true)
+    private CustomerEntity customer;
 }

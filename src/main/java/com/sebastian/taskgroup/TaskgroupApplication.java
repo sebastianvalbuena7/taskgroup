@@ -15,6 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -37,29 +40,36 @@ public class TaskgroupApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var project2 = ProjectEntity.builder()
-				.id(UUID.randomUUID())
-				.name("Project X")
-				.budget(BigDecimal.valueOf(3400))
-				.date_end(LocalDate.now().plusMonths(2))
-				.type(TypeProject.Technology)
-				.date_start(LocalDate.now())
-				.build();
-		projectRepository.save(project2);
-
-		var project = TaskEntity.builder()
-				.id(UUID.randomUUID())
-				.date_end(LocalDateTime.now())
-				.name("Works")
-				.description("Dont works")
-				.project(project2)
-				.build();
-		taskRepository.save(project);
+//		var project = TaskEntity.builder()
+//				.id(UUID.randomUUID())
+//				.date_end(LocalDateTime.now())
+//				.name("Works")
+//				.description("Dont works")
+//				.project(project2)
+//				.build();
+//		taskRepository.save(project);
 
 //		var customer = CustomerEntity.builder()
 //				.email("sebastian@correo.com")
 //				.name("Sebastian Valbuena")
 //				.build();
 //		customerRepository.save(customer);
+//
+//		var customer2 = CustomerEntity.builder()
+//				.email("fiore@correo.com")
+//				.name("Fiorella Cejade")
+//				.build();
+//		customerRepository.save(customer2);
+//
+//		var project2 = ProjectEntity.builder()
+//				.id(UUID.randomUUID())
+//				.customer(customer)
+//				.name("Project X")
+//				.budget(BigDecimal.valueOf(3400))
+//				.date_end(LocalDate.now().plusMonths(2))
+//				.type(TypeProject.Technology)
+//				.date_start(LocalDate.now())
+//				.build();
+//		projectRepository.save(project2);
 	}
 }
